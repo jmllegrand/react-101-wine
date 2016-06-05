@@ -1,6 +1,6 @@
-Tasks completed:
 
-Project initialization
+
+## Step 0
 
 - npm configuration with `npm init`
 - webpack configuration with `webpack.config.js` & `.babelrc` 
