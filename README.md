@@ -7,3 +7,4 @@
 - eslint configuration with `.eslintrc`
 - creation hello world component with `app.js` & `wine.js`
 
+test
