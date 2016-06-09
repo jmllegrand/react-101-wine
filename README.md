@@ -1,9 +1,8 @@
 
 
-## Step 0
+## Step 1
 
-- npm configuration with `npm init`
-- webpack configuration with `webpack.config.js` & `.babelrc` 
-- eslint configuration with `.eslintrc`
-- creation hello world component with `app.js` & `wine.js`
+- add the tooling in `package.json`
+- add a dedicated test file 
+
 
