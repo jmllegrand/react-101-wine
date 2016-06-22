@@ -1,12 +1,8 @@
-/**
- * Created by jmlegrand on 11/06/16.
- */
-
 import React from 'react';
 import Regions from './Regions';
 import WineList from './WineList';
 import Wine from './Wine';
-
+import _ from 'lodash';
 
 class WineApp extends React.Component {
 
@@ -22,19 +18,17 @@ class WineApp extends React.Component {
 
   setCurrentRegion(region) {
     console.log('JM - WineApp.setCurrentRegion()');
-    this.state.selectedRegion = region;
     this.setState({
-      selectedRegion: this.state.selectedRegion
+      selectedRegion: region
     })
   }
 
   setCurrentWine(wineName) {
     console.log('JM - WineApp.setCurrentWine()');
-    this.state.selectedWine = _.find(this.props.wines, function(wine) {
-      return wine.name === wineName
-    });
     this.setState({
-      selectedWine: this.state.selectedWine
+      selectedWine: _.find(this.props.wines, function(wine) {
+        return wine.name === wineName
+      })
     })
   }
 
@@ -45,11 +39,12 @@ class WineApp extends React.Component {
       <div>
         <Regions
           regions={regions}
-          setCurrentRegion={this.setCurrentRegion.bind(this)}/>
+          setCurrentRegion={this.setCurrentRegion.bind(this)}
+        />
         <WineList
-          wines={this.props.wines}
           selectedRegion={this.state.selectedRegion}
           setCurrentWine={this.setCurrentWine.bind(this)}
+          wines={this.props.wines}
         />
         <Wine selectedWine={this.state.selectedWine}/>
       </div>
@@ -57,5 +52,8 @@ class WineApp extends React.Component {
   }
 }
 
+WineApp.propTypes = {
+  wines: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+};
 
 export default WineApp;

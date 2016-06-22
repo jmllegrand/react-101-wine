@@ -1,7 +1,3 @@
-/**
- * Created by jmlegrand on 11/06/16.
- */
-
 import React from 'react';
 import _ from 'lodash';
 
@@ -15,17 +11,27 @@ const WineList = ({wines, selectedRegion, setCurrentWine}) => {
   console.log('names', names);
   return (
     <div>
-      <h2>Wine List</h2>
+      <h2>{'Wine List'}</h2>
       <ul>
         {_.map(names, function(name) {
           return (
-            <li key={name} onClick={() => {setCurrentWine(name)}}>{name}</li>
+            <li key={name}
+                onClick={() => {setCurrentWine(name)}}
+            >
+              {name}
+            </li>
           )
         })}
       </ul>
 
     </div>
   );
+};
+
+WineList.propTypes = {
+  wines: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  selectedRegion: React.PropTypes.string.isRequired,
+  setCurrentWine: React.PropTypes.func.isRequired
 };
 
 export default WineList;
