@@ -13,7 +13,7 @@ class WineApp extends React.Component {
   constructor() {
     console.log('JM - WineApp.constructor()');
     super();
-    this.state =  {
+    this.state = {
       selectedRegion: 'Saint-Emilion',
       filteredWines: [],
       selectedWine: null
@@ -22,23 +22,19 @@ class WineApp extends React.Component {
 
   setCurrentRegion(region) {
     console.log('JM - WineApp.setCurrentRegion()');
-    console.log('region',region);
     this.state.selectedRegion = region;
     this.setState({
-      selectedRegion : this.state.selectedRegion
+      selectedRegion: this.state.selectedRegion
     })
   }
 
   setCurrentWine(wineName) {
-    debugger
     console.log('JM - WineApp.setCurrentWine()');
-    console.log('wineName', wineName);
-
     this.state.selectedWine = _.find(this.props.wines, function(wine) {
       return wine.name === wineName
     });
     this.setState({
-      selectedWine : this.state.selectedWine
+      selectedWine: this.state.selectedWine
     })
   }
 
@@ -47,16 +43,18 @@ class WineApp extends React.Component {
     const regions = _.map(_.uniqBy(this.props.wines, 'appelation'), 'appelation');
     return (
       <div>
-        <Regions regions={regions} setCurrentRegion={this.setCurrentRegion.bind(this)}/>
+        <Regions
+          regions={regions}
+          setCurrentRegion={this.setCurrentRegion.bind(this)}/>
         <WineList
           wines={this.props.wines}
           selectedRegion={this.state.selectedRegion}
-          setCurrentWine={this.setCurrentWine.bind(this)}/>
-        <Wine selectedWine={this.state.selectedWine} />
+          setCurrentWine={this.setCurrentWine.bind(this)}
+        />
+        <Wine selectedWine={this.state.selectedWine}/>
       </div>
     );
   }
-
 }
 
 

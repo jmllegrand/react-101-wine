@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha './src/**/*.spec.js' --compilers js:babel-core/register",
     "bundle": "webpack -p --colors --progress",
-    "start": "webpack-dev-server -d --colors --inline --content-base public",
+    "start": "webpack-dev-server -d --port 3003 --colors --inline --content-base public",
     "lint": "eslint src"
   },
   "author": "jmllegrand",

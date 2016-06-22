@@ -11,17 +11,17 @@ const WineList = ({wines, selectedRegion, setCurrentWine}) => {
     return wine.appelation === selectedRegion
   });
 
-  const names= _.map(filteredWines, 'name');
+  const names = _.map(filteredWines, 'name');
   console.log('names', names);
   return (
     <div>
+      <h2>Wine List</h2>
       <ul>
-        WineList
-      {_.map(names, function(name) {
-        return (
-          <li key={name} onClick={() => {setCurrentWine(name)}}>{name}</li>
-        )
-      })}
+        {_.map(names, function(name) {
+          return (
+            <li key={name} onClick={() => {setCurrentWine(name)}}>{name}</li>
+          )
+        })}
       </ul>
 
     </div>

@@ -10,9 +10,9 @@ const Regions = ({regions, setCurrentRegion}) => {
   console.log(regions);
   return (
     <div>
+      <h2>Regions</h2>
       <ul>
-        Regions
-        {_.map(regions, function (region) {
+        {_.map(regions, function(region) {
           return (
             <li key={region} onClick={() => {return setCurrentRegion(region)}}>{region}</li>
           )

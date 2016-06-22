@@ -2,17 +2,13 @@
 
 ## Step 3
 
-- The original list of wines
+- The list of wines
 - the selected region
-- the filtered list of wines (based on region)
+- the filtered list of wines (based on the selected region)
 - the selected wine 
-
-the list of regions can be derived from the original list of wines
-
-
+- the list of regions (derived from the original list of wines)
 
 Is it passed in from a parent via props? If so, it probably isn't state.
-
 
 Does it change over time? If not, it probably isn't state.
 - The original list of wines does not change over time => not state
