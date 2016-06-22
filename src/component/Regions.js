@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 const Regions = ({regions, setCurrentRegion}) => {
   return (
-    <div>
+    <div className="1/4 grid__cell">
       <h2>{'Regions'}</h2>
       <ul>
         {_.map(regions, function(region) {

@@ -10,7 +10,7 @@ const WineList = ({wines, selectedRegion, setCurrentWine}) => {
   const names = _.map(filteredWines, 'name');
   console.log('names', names);
   return (
-    <div>
+    <div className="1/3 grid__cell">
       <h2>{'Wine List'}</h2>
       <ul>
         {_.map(names, function(name) {
