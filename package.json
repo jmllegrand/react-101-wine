@@ -4,7 +4,7 @@
   "description": "react 101",
   "main": "index.js",
   "scripts": {
-    "test":  "mocha './src/**/*.spec.js' --compilers js:babel-core/register",
+    "test": "mocha './src/**/*.spec.js' --compilers js:babel-core/register",
     "bundle": "webpack -p --colors --progress",
     "start": "webpack-dev-server -d --colors --inline --content-base public",
     "lint": "eslint src"
@@ -12,6 +12,7 @@
   "author": "jmllegrand",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.13.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
