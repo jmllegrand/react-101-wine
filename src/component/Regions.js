@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-const Regions = ({regions, setCurrentRegion}) => {
+const Regions = ({regions, setCurrentRegion, currentRegion}) => {
   return (
     <div className="1/4 grid__cell">
       <h2>{'Regions'}</h2>
@@ -9,6 +9,7 @@ const Regions = ({regions, setCurrentRegion}) => {
         {_.map(regions, function(region) {
           return (
             <li
+              className={computeRegionStyle(region, currentRegion)}
               key={region}
               onClick={() => {return setCurrentRegion(region)}}
             >
@@ -20,6 +21,12 @@ const Regions = ({regions, setCurrentRegion}) => {
     </div>
   );
 };
+
+
+function computeRegionStyle (region, currentRegion) {
+  return (region === currentRegion) ? 'active' : 'notactive';
+};
+
 
 Regions.propTypes = {
   regions: React.PropTypes.arrayOf(React.PropTypes.string),

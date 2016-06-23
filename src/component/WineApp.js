@@ -36,12 +36,14 @@ class WineApp extends React.Component {
     console.log('JM - WineApp.render()');
     const regions = _.map(_.uniqBy(this.props.wines, 'appelation'), 'appelation');
     return (
-      <div>
+      <div className="grid">
         <Regions
+          currentRegion={this.state.selectedRegion}
           regions={regions}
           setCurrentRegion={this.setCurrentRegion.bind(this)}
         />
         <WineList
+          currentWine={this.state.selectedWine}
           selectedRegion={this.state.selectedRegion}
           setCurrentWine={this.setCurrentWine.bind(this)}
           wines={this.props.wines}

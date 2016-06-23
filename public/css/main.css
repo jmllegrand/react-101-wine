@@ -1,3 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.active {
+    font-weight : bold;
+    padding: 16px;
+    background-color: lightgray;
+}
+
+.notactive {
+    cursor: pointer;
+}

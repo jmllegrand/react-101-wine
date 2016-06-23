@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 
-const WineList = ({wines, selectedRegion, setCurrentWine}) => {
+const WineList = ({wines, selectedRegion, setCurrentWine, currentWine}) => {
   const filteredWines = _.filter(wines, function(wine) {
     return wine.appelation === selectedRegion
   });
@@ -15,8 +15,10 @@ const WineList = ({wines, selectedRegion, setCurrentWine}) => {
       <ul>
         {_.map(names, function(name) {
           return (
-            <li key={name}
-                onClick={() => {setCurrentWine(name)}}
+            <li
+              className={computeStyle(name, currentWine)}
+              key={name}
+              onClick={() => {setCurrentWine(name)}}
             >
               {name}
             </li>
@@ -27,6 +29,12 @@ const WineList = ({wines, selectedRegion, setCurrentWine}) => {
     </div>
   );
 };
+
+
+function computeStyle(name, selected) {
+  return (selected !== null) && (name === selected.name) ? 'active' : 'notactive';
+};
+
 
 WineList.propTypes = {
   wines: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
