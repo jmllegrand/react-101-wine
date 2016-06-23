@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Wine = ({selectedWine}) => {
+const WineDetail = ({selectedWine}) => {
   return (selectedWine !== null) ? (
-    <div>
+    <div className="5/12 grid__cell">
       <h2>{'Wine Description'}</h2>
       <ul>
         <li>
@@ -26,13 +26,13 @@ const Wine = ({selectedWine}) => {
     </div>
   ) :
     (
-      <div>
+      <div className="5/12 grid__cell">
         <h2>{'No Wine'}</h2>
       </div>
     );
 };
 
-Wine.propTypes = {
+WineDetail.propTypes = {
   selectedWine: React.PropTypes.shape({
     name: React.PropTypes.string.isRequired,
     rating: React.PropTypes.number.isRequired,
@@ -41,4 +41,4 @@ Wine.propTypes = {
   })
 };
 
-export default Wine;
+export default WineDetail;

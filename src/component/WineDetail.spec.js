@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import ReactTestUtils from 'react-addons-test-utils';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Wine from './Wine';
+import Wine from './WineDetail';
 import {bootstrapEnv} from '../utils/bootstrap';
 
 describe('Wine', () => {

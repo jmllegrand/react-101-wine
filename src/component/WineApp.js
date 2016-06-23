@@ -1,7 +1,7 @@
 import React from 'react';
 import Regions from './Regions';
 import WineList from './WineList';
-import Wine from './Wine';
+import Wine from './WineDetail';
 import _ from 'lodash';
 
 class WineApp extends React.Component {
