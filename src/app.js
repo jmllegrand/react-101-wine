@@ -9,6 +9,7 @@ import WineApp from './component/WineApp';
 
 const wines = [
   {
+    key:0,
     region: 'Bordeaux',
     name: 'Château Ausone',
     status: 'coming',
@@ -20,6 +21,7 @@ const wines = [
     description: 'Avec son nez un peu poudré, sur la minéralité, le camphre et l’encens, la couleur est annoncée.'
   },
   {
+    key:1,
     region: 'Bordeaux',
     name: 'Château Figeac',
     status: 'coming',
@@ -31,6 +33,7 @@ const wines = [
     description: 'Le retour en force de Figeac se confirme, avec ce nez de fleur sauvage et de tabac blond, et cette signature mentholée, réglissée.'
   },
   {
+    key:2,
     region: 'Bordeaux',
     name: 'Château Canon',
     status: 'out',
@@ -42,6 +45,7 @@ const wines = [
     description: 'Dès le premier nez, fumé, aiguisé, capiteux, la magie opère. violette, pivoine, bourgeon de cassis, épices douces, matière très suave, toucher de bouche velouté, soyeux, élégant..'
   },
   {
+    key:3,
     region: 'Bordeaux',
     name: 'Château Fleur Cardinale',
     status: 'out',
@@ -53,6 +57,7 @@ const wines = [
     description: 'Beaucoup de style dans ce vin sensuel et sûr de lui, séduisant comme une paire de stilettos.'
   },
   {
+    key:4,
     region: 'Bordeaux',
     name: 'Château Grand Corbin-Despagne',
     status: 'available',
@@ -65,6 +70,7 @@ const wines = [
   },
 
   {
+    key:5,
     region: 'Bordeaux',
     name: 'Petrus',
     status: 'coming',
@@ -76,6 +82,7 @@ const wines = [
     description: 'Unique, Petrus nous laisse frôler la perfection du bord du verre'
   },
   {
+    key:6,
     region: 'Bordeaux',
     name: 'Château Eglise Clinet',
     status: 'coming',
@@ -87,6 +94,7 @@ const wines = [
     description: ''
   },
   {
+    key:7,
     region: 'Bordeaux',
     name: 'Château L’Evangile',
     status: 'coming',
@@ -98,6 +106,7 @@ const wines = [
     description: 'Un vin immense, incroyable de profondeur dans ses arômes de cerise noire, d’orange sanguine et ses notes fumées et florales, son extraordinaire fluidité de matière, sa soyeuse qualité de tanins'
   },
   {
+    key:8,
     region: 'Bordeaux',
     name: 'Château La Violette',
     status: 'out',
@@ -109,6 +118,7 @@ const wines = [
     description: 'Superbe vin résolument exceptionnel.'
   },
   {
+    key:9,
     region: 'Bordeaux',
     name: 'Château La Conseillante',
     status: 'available',

@@ -27,7 +27,7 @@ const WineDetail = ({selectedWine}) => {
   ) :
     (
       <div className="5/12 grid__cell">
-        <h2>{'No Wine'}</h2>
+        <h2>{''}</h2>
       </div>
     );
 };

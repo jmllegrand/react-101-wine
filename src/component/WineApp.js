@@ -6,12 +6,14 @@ import _ from 'lodash';
 
 class WineApp extends React.Component {
 
-  constructor() {
+  constructor(props) {
     console.log('JM - WineApp.constructor()');
-    super();
+    super(props);
     this.state = {
       selectedRegion: 'Saint-Emilion',
-      filteredWines: [],
+      filteredWines: _.filter(this.props.wines, function(wine) {
+        return wine.appelation === 'Saint-Emilion'
+      }),
       selectedWine: null
     };
   }
@@ -20,7 +22,13 @@ class WineApp extends React.Component {
     console.log('JM - WineApp.setCurrentRegion()');
     this.setState({
       selectedRegion: region
-    })
+    });
+
+    this.setState({
+      filteredWines: _.filter(this.props.wines, function(wine) {
+        return wine.appelation === region
+      })
+    });
   }
 
   setCurrentWine(wineName) {
@@ -44,9 +52,8 @@ class WineApp extends React.Component {
         />
         <WineList
           currentWine={this.state.selectedWine}
-          selectedRegion={this.state.selectedRegion}
+          filteredWines={this.state.filteredWines}
           setCurrentWine={this.setCurrentWine.bind(this)}
-          wines={this.props.wines}
         />
         <Wine selectedWine={this.state.selectedWine}/>
       </div>
