@@ -29,6 +29,10 @@ class WineApp extends React.Component {
         return wine.appelation === region
       })
     });
+
+    this.setState({
+      selectedWine: null
+    })
   }
 
   setCurrentWine(wineName) {

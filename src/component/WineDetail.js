@@ -1,8 +1,14 @@
 import React from 'react';
 
+
+const WineStyle = {
+  padding: 8,
+  boxShadow: '0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12)'
+};
+
 const WineDetail = ({selectedWine}) => {
   return (selectedWine !== null) ? (
-    <div className="5/12 grid__cell">
+    <div className="5/12 grid__cell" style={WineStyle} >
       <h2>{'Wine Description'}</h2>
       <ul>
         <li>
