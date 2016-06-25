@@ -1,31 +1,22 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 
-const WineStyle = {
-  padding: 8,
-  boxShadow: '0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12)'
-};
-
-const WineDetail = ({selectedWine}) => {
-  return (selectedWine !== null) ? (
-    <div className="5/12 grid__cell" style={WineStyle} >
-      <h2>{'Wine Description'}</h2>
+const WineDetail = ({currentWine}) => {
+  return (currentWine !== null) ? (
+    <div className="5/12 grid__cell winestyle" >
+      <h2>{(currentWine.name) }</h2>
       <ul>
-        <li>
-          <span>{'name: '}</span>
-          <span>{selectedWine.name}</span>
+        <li className='wineinfo'>
+          <span className='winelabel'>{'rating: '}</span>
+          <span>{currentWine.rating}</span>
         </li>
-        <li>
-          <span>{'rating: '}</span>
-          <span>{selectedWine.rating}</span>
+        <li className='wineinfo'>
+          <span className='winelabel'>{'superficie: '}</span>
+          <span>{currentWine.superficie}</span>
         </li>
-        <li>
-          <span>{'superficie: '}</span>
-          <span>{selectedWine.superficie}</span>
-        </li>
-        <li>
-          <span>{'description: '}</span>
-          <span>{selectedWine.description}</span>
+        <li className='wineinfo'>
+          <span className='winelabel'>{'description: '}</span>
+          <span>{currentWine.description}</span>
         </li>
 
       </ul>
@@ -39,11 +30,11 @@ const WineDetail = ({selectedWine}) => {
 };
 
 WineDetail.propTypes = {
-  selectedWine: React.PropTypes.shape({
-    name: React.PropTypes.string.isRequired,
-    rating: React.PropTypes.number.isRequired,
-    superficie: React.PropTypes.number.isRequired,
-    description: React.PropTypes.string
+  currentWine: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    superficie: PropTypes.number.isRequired,
+    description: PropTypes.string
   })
 };
 

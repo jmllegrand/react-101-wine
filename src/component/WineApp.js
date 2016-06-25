@@ -1,72 +1,65 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Regions from './Regions';
 import WineList from './WineList';
-import Wine from './WineDetail';
+import WineDetail from './WineDetail';
 import _ from 'lodash';
 
 class WineApp extends React.Component {
 
   constructor(props) {
-    console.log('JM - WineApp.constructor()');
     super(props);
     this.state = {
-      selectedRegion: 'Saint-Emilion',
-      filteredWines: _.filter(this.props.wines, function(wine) {
-        return wine.appelation === 'Saint-Emilion'
-      }),
-      selectedWine: null
+      currentRegion: '',
+      filteredWines: [],
+      currentWine: null
     };
   }
 
+  /* when a region is selected:,
+  - filteredWines needs to be recalculated,
+  - currentWine needs to be reset
+   */
   setCurrentRegion(region) {
-    console.log('JM - WineApp.setCurrentRegion()');
     this.setState({
-      selectedRegion: region
+      currentRegion: region,
+      filteredWines: _.filter(this.props.wines, (wine) => (
+        wine.appelation === region
+      )),
+      currentWine: null
     });
-
-    this.setState({
-      filteredWines: _.filter(this.props.wines, function(wine) {
-        return wine.appelation === region
-      })
-    });
-
-    this.setState({
-      selectedWine: null
-    })
   }
 
   setCurrentWine(wineName) {
-    console.log('JM - WineApp.setCurrentWine()');
     this.setState({
-      selectedWine: _.find(this.props.wines, function(wine) {
-        return wine.name === wineName
-      })
-    })
+      currentWine: _.find(this.props.wines, (wine) => (
+      wine.name === wineName
+      ))
+  })
   }
 
   render() {
-    console.log('JM - WineApp.render()');
+    //TODO move regions outside render() to avoid re-executing the methods each time the component renders
     const regions = _.map(_.uniqBy(this.props.wines, 'appelation'), 'appelation');
     return (
       <div className="grid">
         <Regions
-          currentRegion={this.state.selectedRegion}
+          currentRegion={this.state.currentRegion}
           regions={regions}
-          setCurrentRegion={this.setCurrentRegion.bind(this)}
+          onRegionChange={this.setCurrentRegion.bind(this)}
         />
         <WineList
-          currentWine={this.state.selectedWine}
+          currentWine={this.state.currentWine}
           filteredWines={this.state.filteredWines}
-          setCurrentWine={this.setCurrentWine.bind(this)}
+          onWineChange={this.setCurrentWine.bind(this)}
         />
-        <Wine selectedWine={this.state.selectedWine}/>
+        <WineDetail currentWine={this.state.currentWine}/>
       </div>
     );
   }
 }
 
 WineApp.propTypes = {
-  wines: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+  wines: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default WineApp;
