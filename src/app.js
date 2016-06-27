@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom';
 import WineApp from './component/WineApp';
 import datas from './datas';
 
-import Home from './page/Home';
+import HomePage from './page/HomePage';
+import AboutPage from './page/AboutPage';
 
 const App = React.createClass({
 
@@ -23,13 +24,13 @@ const App = React.createClass({
     let Child;
     switch (this.state.route) {
       case '/about':
-        Child = About;
+        Child = AboutPage;
         break;
       case '/inbox':
         Child = Inbox;
         break;
       default:
-        Child = Home;
+        Child = HomePage;
     }
     return (
       <div>
