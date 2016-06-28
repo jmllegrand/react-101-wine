@@ -4,11 +4,11 @@
 
 
 import React from 'react';
+import Regions from '../component/Regions';
 
 
-const HomePage = () =>
-  (<div>
-    <h1>THIS IS *********** HOME *********** PAGE </h1>
-  </div>);
+const HomePage = () => (
+  <Regions />
+);
 
 export default HomePage;

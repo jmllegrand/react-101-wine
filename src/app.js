@@ -9,15 +9,24 @@ import datas from './datas';
 
 import HomePage from './page/HomePage';
 import AboutPage from './page/AboutPage';
+import InboxPage from './page/InboxPage';
+
 
 const App = React.createClass({
 
   getInitialState() {
-    debugger
     console.log(window.location.hash.substr(1));
     return {
       route: window.location.hash.substr(1)
     }
+  },
+
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({
+        route: window.location.hash.substr(1)
+      })
+    })
   },
 
   render() {
@@ -27,7 +36,7 @@ const App = React.createClass({
         Child = AboutPage;
         break;
       case '/inbox':
-        Child = Inbox;
+        Child = InboxPage;
         break;
       default:
         Child = HomePage;
